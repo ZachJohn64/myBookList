@@ -55,7 +55,9 @@ class UI {
         div.appendChild(document.createTextNode(message));
         const container = document.querySelector('.contain');
         const form = document.querySelector('#book-form');
-        container.insertBefore(div, form)
+        container.insertBefore(div, form);
+        // Vanish in 2 seconds
+        setTimeout(() => document.querySelector('.alert').remove(), 2000);
     }
 
     static deleteBook(el) {
@@ -97,6 +99,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
         // Clear Fields
         UI.clearFields();
+
+        //Success Message
+        UI.showAlert('Book Successfully added', 'success')
     }
 });
 
